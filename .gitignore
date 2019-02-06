@@ -3,6 +3,7 @@ __pycache__/
 
 *.log
 
+build/
 env/
 config.json
 
