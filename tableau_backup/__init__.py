@@ -3,7 +3,6 @@ import json
 import datetime
 import os, errno
 import logging
-import zipfile
 import shutil
 import boto3
 from argparse import ArgumentParser
@@ -70,8 +69,6 @@ def main():
 	server = TSC.Server(SERVER, use_server_version=True)
 
 	#Get Projects
-	
-	
 
 	server.auth.sign_in(tableau_auth)
 
@@ -100,12 +97,11 @@ def main():
 	server.auth.sign_out()
 
 	#Create zipfile
-	backup_name = 'tableau-backup-' + backup_date + '.zip'
+	backup_name = 'tableau-backup-' + backup_date
 	backup_zip = BACKUP_ROOT + '/' + backup_name
-	zipf = zipfile.ZipFile(backup_zip, 'w', zipfile.ZIP_DEFLATED)
-	zipdir(backup_directory, zipf)
-	zipf.close()
-
+	shutil.make_archive(backup_zip, 'zip', backup_directory)
+	backup_name += '.zip'
+	backup_zip +='.zip'
 	#Remove directory
 	try:
 	    shutil.rmtree(backup_directory)
