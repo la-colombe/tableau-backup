@@ -4,7 +4,7 @@ __pycache__/
 *.log
 
 env/
-congig.json
+config.json
 
 # Compiled python modules.
 *.pyc

@@ -1,0 +1,8 @@
+{
+	"username" : "", //username or email address
+	"password" : "", //account's password
+	"server" : "https://us-east-1.online.tableau.com", //your server's url
+ 	"site" : "lacolombedataispower", //null if no site
+	"backup_directory" : "/my/local/directory/tableauBackups/", //directory to backup to
+	"bucket_name" : "lacolombe-tableau-backups" //s3 bucket to upload to
+}
